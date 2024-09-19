@@ -1,0 +1,285 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "private_outputs": true,
+      "provenance": [],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/alexkardan/Data110/blob/main/Week%203%20assighnment%20on%20scatter%20and%20line%20plots\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "HPbQXCNdY87l"
+      },
+      "outputs": [],
+      "source": [
+        "import matplotlib.pyplot as plt\n",
+        "import numpy as np\n",
+        "import pandas as pd\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# style\n",
+        "#plt.style.use('classic')\n",
+        "plt.style.use('ggplot')\n"
+      ],
+      "metadata": {
+        "id": "4qCGrxQcZjTE"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# this give you all the style avaiable\n",
+        "#plt.style.available\n"
+      ],
+      "metadata": {
+        "id": "hiCwc9SOaICo"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x=np.linspace(0,2*3.14,100)\n",
+        "\n",
+        "plt.plot(x,np.sin(x))\n"
+      ],
+      "metadata": {
+        "id": "6yOc-pRaaVsM"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "x=np.linspace(0,2*3.14,100)\n",
+        "\n",
+        "plt.plot(x,np.sin(x))\n"
+      ],
+      "metadata": {
+        "id": "07zucC-IirSu"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "plt.plot(x,np.sin(x))\n",
+        "plt.plot(x,np.cos(x))"
+      ],
+      "metadata": {
+        "id": "9cAPHtQtceZB"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "plt.plot(x, np.sin(x - 0), color='blue')        # specify color by name\n",
+        "plt.plot(x, np.sin(x - 1), color='g')           # short color code (rgbcmyk)\n",
+        "plt.plot(x, np.sin(x - 2), color='0.75')        # grayscale between 0 and 1\n",
+        "plt.plot(x, np.sin(x - 3), color='#FFDD44')     # hex code (RRGGBB, 00 to FF)\n",
+        "plt.plot(x, np.sin(x - 4), color=(1.0,0.2,0.3)) # RGB tuple, values 0 to 1\n",
+        "plt.plot(x, np.sin(x - 5), color='chartreuse'); # HTML color names supported"
+      ],
+      "metadata": {
+        "id": "MTz5hwQUddMi"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "plt.plot(x,x+0,linestyle='solid')\n",
+        "plt.plot(x,x+1,linestyle='dashed')\n",
+        "plt.plot(x,x+2,linestyle='dashdot')\n",
+        "plt.plot(x,x+3,linestyle='dotted')"
+      ],
+      "metadata": {
+        "id": "_rVRfcC8eMUI"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# For short, you can use the following codes:\n",
+        "plt.plot(x, x + 4, linestyle='-')  # solid\n",
+        "plt.plot(x, x + 5, linestyle='--') # dashed\n",
+        "plt.plot(x, x + 6, linestyle='-.') # dashdot\n",
+        "plt.plot(x, x + 7, linestyle=':');  # dotted"
+      ],
+      "metadata": {
+        "id": "UzgeyEzCet3A"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "plt.plot(x, x + 4, linestyle='--',color='g')  # dashed green"
+      ],
+      "metadata": {
+        "id": "wBHVCf4te-dt"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "plt.plot(x, x + 4, '--g')  # dashed green\n",
+        "plt.xlim(-2,15)\n",
+        "plt.ylim(-2,15)"
+      ],
+      "metadata": {
+        "id": "0iI3ml6afJsQ"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "plt.plot(x, x +0, '-g')   # solid green\n",
+        "plt.plot(x, x + 1, '--c')  # dashed cyan\n",
+        "plt.plot(x, x + 2, '-.k')  # dashdot black\n",
+        "plt.plot(x, x + 3, ':r');  # dotted red\n",
+        "plt.xlim(-2,15)\n",
+        "plt.ylim(-2,15)"
+      ],
+      "metadata": {
+        "id": "TB-J2v0efc9i"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "z=[1,2,3]\n",
+        "\n",
+        "plt.plot(z,z, '-g')   # solid green\n",
+        "plt.axis('equal');"
+      ],
+      "metadata": {
+        "id": "GHSw9W80gk9A"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "plt.plot(x, x)\n"
+      ],
+      "metadata": {
+        "id": "VvmDX1XPjknO"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "plt.plot(x, x)\n",
+        "plt.xlim(0, 10)\n",
+        "plt.ylim(0, 3)\n"
+      ],
+      "metadata": {
+        "id": "Tvj-M6JzjvDU"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "plt.figure(figsize=(20,10)) # if you want to change the size for better quality\n",
+        "plt.plot(x, np.sin(x),label='sin')\n",
+        "plt.plot(x,np.cos(x),label='cos',linestyle='--')\n",
+        "plt.title(\"A Trig Curve\")\n",
+        "plt.xlabel(\"x\")\n",
+        "plt.ylabel(\"sin(x) and cos(x)\")\n",
+        "plt.legend()\n",
+        "plt.ylim(-1.5,1.5)"
+      ],
+      "metadata": {
+        "id": "ILII_X5lmF8k"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "plt.scatter(x,np.sin(x))"
+      ],
+      "metadata": {
+        "id": "GySUZZnyorIQ"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "rng=np.random.RandomState(0)\n",
+        "for marker in ['o', '.','^','d']:\n",
+        "    plt.plot(rng.random(4), rng.random(4), marker)\n"
+      ],
+      "metadata": {
+        "id": "PCvDCQC3pcpv"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "plt.plot(x,np.sin(x),color='green')\n",
+        "plt.scatter(x,np.sin(x),color='red')"
+      ],
+      "metadata": {
+        "id": "Kj_MJzejsASy"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
